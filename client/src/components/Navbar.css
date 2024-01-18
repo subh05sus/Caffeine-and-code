@@ -1,0 +1,23 @@
+.navLink{
+    color:whitesmoke;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+.navLink:hover{
+    color: gray;
+}
+
+a{
+
+    text-decoration: none;
+}
+#title{
+    font-size: x-large;
+}
+.titleA{
+    color: white;
+}
+.titleB{
+    color:rgb(122,220,180);
+}
+
