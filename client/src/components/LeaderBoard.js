@@ -19,7 +19,7 @@ const Leaderboard = () => {
     },
   };
   useEffect(() => {
-    fetch("http://localhost:5000/leaderboard") // Assuming your server is running on http://localhost:5000
+    fetch("https://caffiene-and-code.onrender.com/leaderboard") 
       .then((response) => response.json())
       .then((data) => {
         setLeaderboardData(data);

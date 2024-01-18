@@ -17,7 +17,7 @@ const ProjectsPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/all")
+    fetch("https://caffiene-and-code.onrender.com/all")
       .then((response) => response.json())
       .then((data) => {
         setProjects(data.projects);
