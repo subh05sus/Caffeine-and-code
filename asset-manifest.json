@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.a42ad633.css",
-    "main.js": "/react-gh-pages/static/js/main.b9e8364e.js",
-    "static/media/PHICSIT_white_logo-removebg-preview (1).png": "/react-gh-pages/static/media/PHICSIT_white_logo-removebg-preview (1).6064d88207298bebc014.png",
-    "static/media/illustration-woman-online-mobile.svg": "/react-gh-pages/static/media/illustration-woman-online-mobile.fe928f9c476ef6d33267.svg",
-    "static/media/illustration-woman-online-desktop.svg": "/react-gh-pages/static/media/illustration-woman-online-desktop.843eb114c7213a596ee2.svg",
-    "static/media/third-icon.svg": "/react-gh-pages/static/media/third-icon.d2f8d8825fbf64e2626bc5ecce92f7f5.svg",
-    "static/media/second-icon.svg": "/react-gh-pages/static/media/second-icon.b7d1dec38f8fbecd88656bd409522925.svg",
-    "static/media/illustration-box-desktop.svg": "/react-gh-pages/static/media/illustration-box-desktop.ec1ba14b853c562a6637.svg",
-    "static/media/first-icon.svg": "/react-gh-pages/static/media/first-icon.b5776e457520a438fbe03443f9fd395c.svg",
-    "static/media/gggrain.svg": "/react-gh-pages/static/media/gggrain.aa40467a6c7ce434fa2f.svg",
-    "static/media/bg-pattern-desktop.svg": "/react-gh-pages/static/media/bg-pattern-desktop.f51e07a2f52390c60484.svg",
-    "index.html": "/react-gh-pages/index.html",
-    "static/media/icon-arrow-down.svg": "/react-gh-pages/static/media/icon-arrow-down.1f0754b6a30b710858cc.svg",
-    "main.a42ad633.css.map": "/react-gh-pages/static/css/main.a42ad633.css.map",
-    "main.b9e8364e.js.map": "/react-gh-pages/static/js/main.b9e8364e.js.map"
+    "main.css": "/Caffiene-and-Code/static/css/main.663d67e3.css",
+    "main.js": "/Caffiene-and-Code/static/js/main.e6e978ef.js",
+    "static/media/PHICSIT_white_logo-removebg-preview (1).png": "/Caffiene-and-Code/static/media/PHICSIT_white_logo-removebg-preview (1).6064d88207298bebc014.png",
+    "static/media/illustration-woman-online-mobile.svg": "/Caffiene-and-Code/static/media/illustration-woman-online-mobile.fe928f9c476ef6d33267.svg",
+    "static/media/illustration-woman-online-desktop.svg": "/Caffiene-and-Code/static/media/illustration-woman-online-desktop.843eb114c7213a596ee2.svg",
+    "static/media/third-icon.svg": "/Caffiene-and-Code/static/media/third-icon.d2f8d8825fbf64e2626bc5ecce92f7f5.svg",
+    "static/media/second-icon.svg": "/Caffiene-and-Code/static/media/second-icon.b7d1dec38f8fbecd88656bd409522925.svg",
+    "static/media/illustration-box-desktop.svg": "/Caffiene-and-Code/static/media/illustration-box-desktop.ec1ba14b853c562a6637.svg",
+    "static/media/first-icon.svg": "/Caffiene-and-Code/static/media/first-icon.b5776e457520a438fbe03443f9fd395c.svg",
+    "static/media/gggrain.svg": "/Caffiene-and-Code/static/media/gggrain.aa40467a6c7ce434fa2f.svg",
+    "static/media/bg-pattern-desktop.svg": "/Caffiene-and-Code/static/media/bg-pattern-desktop.f51e07a2f52390c60484.svg",
+    "index.html": "/Caffiene-and-Code/index.html",
+    "static/media/icon-arrow-down.svg": "/Caffiene-and-Code/static/media/icon-arrow-down.1f0754b6a30b710858cc.svg",
+    "main.663d67e3.css.map": "/Caffiene-and-Code/static/css/main.663d67e3.css.map",
+    "main.e6e978ef.js.map": "/Caffiene-and-Code/static/js/main.e6e978ef.js.map"
   },
   "entrypoints": [
-    "static/css/main.a42ad633.css",
-    "static/js/main.b9e8364e.js"
+    "static/css/main.663d67e3.css",
+    "static/js/main.e6e978ef.js"
   ]
 }
