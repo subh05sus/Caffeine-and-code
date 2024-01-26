@@ -1,32 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaGithub, FaTwitter, FaLinkedin, FaGlobe } from "react-icons/fa";
 import Lottie from "react-lottie";
 import animationData from "./loading.json";
+import { initializeApp } from "firebase/app";
+import { getFirestore, getDocs, collection } from "@firebase/firestore/lite";
+import CardSpotlightEffect from "./CardSpotlightEffect";
+import Skeleton from "react-loading-skeleton"; // Import the skeleton library
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAL9WJcZf3kLSUKEawrFFpR5GTegi-HlDw",
+  authDomain: "aarogyadisha-fb7b9.firebaseapp.com",
+  projectId: "aarogyadisha-fb7b9",
+  storageBucket: "aarogyadisha-fb7b9.appspot.com",
+  messagingSenderId: "718145025164",
+  appId: "1:718145025164:web:4b0d332f599e65ea83f7a9",
+  measurementId: "G-W2SCDZSL7N",
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   useEffect(() => {
-    fetch("https://caffiene-and-code.onrender.com/all")
-      .then((response) => response.json())
-      .then((data) => {
-        setProjects(data.projects);
+    // Fetch projects directly from Firebase
+    const fetchProjects = async () => {
+      try {
+        const projectsSnapshot = await getDocs(collection(db, "projects"));
+        const projectsData = projectsSnapshot.docs.map((doc) => doc.data());
+        setProjects(projectsData);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching projects:", error);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   const handleProjectClick = (project) => {
@@ -39,56 +54,75 @@ const ProjectsPage = () => {
 
   return (
     <div className="projects-container">
+      <p style={{ fontSize: "15px", marginBottom: "15px" }}>
+        <h2 style={{ marginTop: 0 }}>Projects</h2>
+        Have an open-source project you'd like to showcase? Submit your project
+        details and let the community discover and contribute to your work.
+        <a href="/">
+          <b>
+            <span className="titleB"> Add your project</span>
+          </b>
+        </a>
+      </p>
       {loading ? (
-        <Lottie options={defaultOptions} height={400} width={400} />
+        <div className="skeleton-container">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <CardSpotlightEffect>
+              <div key={index} className="skeleton-card">
+                <div className="skeleton-gradient" />
+                <Skeleton height={150} />
+                <Skeleton
+                  height={15}
+                  width={100}
+                  style={{ marginTop: "10px" }}
+                />
+                <Skeleton height={80} style={{ marginTop: "10px" }} />
+              </div>
+            </CardSpotlightEffect>
+          ))}
+        </div>
       ) : (
         <div>
-          <p style={{ fontSize: "15px", marginBottom: "15px" }}>
-            <h2 style={{ marginTop: 0 }}>Projects</h2>
-            Have an open-source project you'd like to showcase? Submit your project details
-            and let the community discover and contribute to your work. 
-            <a href="/">
-              <b>
-                <span className="titleB"> Add your project</span>
-              </b>
-            </a>
-          </p>
           <div className="projects-grid">
             {projects.map((project) => (
-              <div key={project.projectID} className="project-card">
-                <div>
-                  <h3>
-                    <a href={project.githubRepo}>{project.projectName}</a>
-                  </h3>
-                  <p className="projDesc">
-                    {project.projectDescription.length > 100
-                      ? project.projectDescription.slice(0, 100) + "..."
-                      : project.projectDescription}
-                  </p>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      flexWrap: "wrap",
-                      gap: "10px",
-                      marginTop: "10px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    {project.techStacks.map((stack) => (
-                      <div className="stack-span">{stack}</div>
-                    ))}
+              <CardSpotlightEffect key={project.projectID}>
+                <div className="project-card">
+                  <div>
+                    <h3>
+                      <a href={project.githubRepo}>{project.projectName}</a>
+                    </h3>
+                    <p className="projDesc">
+                      {project.projectDescription.length > 100
+                        ? project.projectDescription.slice(0, 100) + "..."
+                        : project.projectDescription}
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        gap: "10px",
+                        marginTop: "10px",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      {project.techStacks.map((stack) => (
+                        <div className="stack-span" key={stack}>
+                          {stack}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => handleProjectClick(project)}
+                      className="seeMoreButton"
+                    >
+                      See More >
+                    </button>
                   </div>
                 </div>
-                <div>
-                  <button
-                    onClick={() => handleProjectClick(project)}
-                    className="seeMoreButton"
-                  >
-                    See More >
-                  </button>
-                </div>
-              </div>
+              </CardSpotlightEffect>
             ))}
           </div>
         </div>
@@ -127,9 +161,6 @@ const ProjectsPage = () => {
                 <div>
                   <p className="adminProject">
                     Project Admin: {selectedProject.adminName}
-                    {/* {selectedProject.adminDetails && (
-                      <span> - {selectedProject.adminDetails}</span>
-                    )} */}
                   </p>
                   <div className="admin-links" style={{ marginTop: "10px" }}>
                     {selectedProject.adminGithub && (

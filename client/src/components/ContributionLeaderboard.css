@@ -1,0 +1,52 @@
+/* ContributionLeaderboard.css */
+
+.contribution-leaderboard-container {
+  padding: 20px;
+  background-color: #111520;
+  color: #fff;
+}
+
+h2 {
+  color: #fff;
+}
+
+.top-three {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.user-card {
+  background-color: #1a1a1a;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  height: 100px;
+}
+.profile-picture-small {
+  border-radius: 50%;
+  height: 50px;
+}

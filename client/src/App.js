@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import LoadingBar from 'react-top-loading-bar'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 import Homepage from './components/Homepage';
 import ProjectsPage from './components/ProjectsPage';
 import OurTeam from './components/OurTeam';
-import LeaderBoard from './components/LeaderBoard';
+import LeaderBoard from './components/ContributionLeaderboard';
 import NoPage from './components/NoPage';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
           <Route path="*" element={<NoPage setProgress = {setProgress} />} />
         </Routes>
       </Router>
-      
+
     </div>
   );
 };
