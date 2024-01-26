@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import phicsitImage from './assets/PHICSIT_white_logo-removebg-preview (1).png'
 import "./Navbar.css";
-
+import { isMobile } from "react-device-detect";
 const Navbar = () => {
 
   return (
@@ -23,7 +23,7 @@ const Navbar = () => {
           color: "white",
           borderRadius: "10px",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: isMobile ?"column" : "row",
           justifyContent: "space-between",
           alignItems: "center",
           margin: "15px",
